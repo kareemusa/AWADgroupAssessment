@@ -2,11 +2,25 @@ require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
    test "product attributes must not be empty" do
-     product = Product.new
+     product = Product.new(title: "My Book Title",
+description: "yyy",
+image_url: "zzz.jpg")
+product.price = -1     
+     assert product.invalid?
+     assert_equal "must be greater than or equal to 0.01"
+     product.errors[:price].join('; ')
+product.price = 0
 assert product.invalid?
-assert product.errors[:title].any?
+assert_equal "must be greater than or equal to 0.01",
+product.errors[:price].join('; ')
+product.price = 1
+assert product.valid?
+end
+     
+     
 assert product.errors[:description].any?
-assert product.errors[:price].any?
 assert product.errors[:image_url].any?
-   end
+assert product.errors[:price].any?
 
+#   end
+end

@@ -1,21 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.htmlone:
 
 one:
-  name:dave
-  password_digest: <%= BCrypt::Password.create('secret') %>
-
-two:
-  name: MyString
-  password_digest: MyString
-
-one:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: abc.com/a.jpg
   price: 9.99
 
 two:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: abc.com/a.jpg
   price: 9.99

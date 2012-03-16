@@ -12,8 +12,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
    def login_as(member)
      session[:member_id] = members(member).id
-   end
-   
+end
    def logout
      session.delete :member_id
    end

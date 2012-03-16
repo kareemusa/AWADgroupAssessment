@@ -20,10 +20,29 @@ class MembersControllerTest < ActionController::TestCase
     get :new
     assert_response :success
   end
+  
+test "should login" do
+ dave = members(:one)
+ post :create, name: dave.name, password: 'secret'
+ assert_redirected_to admin_url
+ assert_equal dave.id, session[:member_id]
+ end
+ test "should fail login" do
+ dave = members(:one)
+ post :create, name: dave.name, password: 'wrong'
+ assert_redirected_to login_url
+ 
+ end
+ test "should logout" do
+ delete :destroy
+ assert_redirected_to movie_url
+ end  
+  
+  
 
   test "should create member" do
     assert_difference('Member.count') do
-      post :create, member: @member_attributes
+      post :create, member: @input_attributes
     end
 
     assert_redirected_to members_path
@@ -40,7 +59,7 @@ class MembersControllerTest < ActionController::TestCase
   end
 
   test "should update member" do
-    put :update, id: @member, member: @member_attributes
+    put :update, id: @member.to_param, member: @input_attributes
     assert_redirected_to members_path
   end
 
