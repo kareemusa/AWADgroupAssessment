@@ -1,0 +1,24 @@
+<h1>Listing members</h1>
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% end %>
+<table border= "1">
+  <tr>
+    <th colspan="4">Name</th>
+   
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+    <td><%= member.name %></td>
+    <td><%= link_to 'Show', member %></td>
+    <td><%= link_to 'Edit', edit_member_path(member) %></td>
+    <td><%= link_to 'Destroy', member, confirm: 'Are you sure?',
+       method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Member', new_member_path %>

@@ -1,0 +1,49 @@
+// Place all the styles related to the Movie controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.movie {
+ h1 {
+ margin: 0;
+ padding-bottom: 0.2em;
+ font: 200% cursive;
+ color: #000000;
+ border-bottom: 5px double #000000;
+ }
+
+
+ /* An entry in the movie catalog */
+ .entry {
+ overflow: auto;
+ margin-top: 1em;
+ border-bottom: 5px groove #ffffff;
+ min-height: 100px;
+
+ img {
+ width: 50px;
+ margin-right: 15px;
+ margin-bottom: 5px;
+ position: absolute;
+ }
+
+ h3 {
+ font-size: 120%;
+ font-family: fantasy;
+ margin-left: 100px;
+ margin-top: 0;
+ margin-bottom: 2px;
+ color: #000000;
+ }
+
+ p, div.price_line {
+ margin-left: 100px;
+ margin-top: 2em;
+ margin-bottom: 1em;
+ }
+
+ .price {
+ color: #000000;
+ font-weight: m bold;
+ margin-right: 3em;
+ }
+ }
+ }

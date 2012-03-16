@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @product.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @product.image_url %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<br /><br />
+<h2><u>Members' Comments:</u></h2>
+<% @product.comments.each do |comment|%>
+ 
+  
+ 
+  <p>
+    <b><font color="#b00000"><%= comment.commenter %></b> says</font><br />
+    <i><%= comment.body %></i>
+  
+  
+   <%= link_to 'delete', [comment.product, comment],
+               :confirm => 'Do you really want to remove this comment?',
+               :method => :delete %>
+
+<% end %>  
+</p>
+
+<br /><br />
+<h2><u>Add a comment:</u></h2>
+<%= form_for([@product, @product.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, rows: 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<%end%>
+
+<br />
+<%= link_to 'Edit Movie', edit_product_path(@product) %> |
+<%= link_to 'Back to Movies', products_path %>

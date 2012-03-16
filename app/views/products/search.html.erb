@@ -1,0 +1,26 @@
+<html>
+<head>  
+<title>Search results</title>
+</head>
+<body>
+<h1>Search results</h1>
+<table border="1">
+<tr>
+<td width="40%"><p align="center"><i><b>Title</b></i></td>
+<td width="20%"><p align="center"><i><b>Description</b></i></td>
+<td width="20%"><p align="center"><i><b>Image Url</b></i></td>
+<td width="20%"><p align="center"><i><b>Price</b></i></td>
+
+</tr>
+<% @products.each do |product| %>
+<tr>
+
+<td><%= product.title %></td>
+<td><%= product.description %></td>
+<td><%= product.image_url %></td>
+<td><%= product.price %></td>
+</tr>
+<%end%>
+</table>
+</body>
+</html>
