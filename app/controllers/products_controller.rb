@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
  def search
    @products = Product.find(:all, :conditions => [" title LIKE ? OR description LIKE ? OR image_url LIKE ? OR price LIKE ?", "%#{params[:key]}%", "%#{params[:key]}%", "%#{params[:key]}%", "%#{params[:key]}%"])
-   
+   @products.sort! { |a,b| a.name.downcase <=> b.name.downcase }
  end
   skip_before_filter :authorize, only: [:create, :update, :destroy]
   http_basic_authenticate_with :name => "mygroup", :password => "assessment", :except => [:index, :show]
